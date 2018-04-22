@@ -21,11 +21,11 @@ function dg(selector) {
 getElementById('btn').addEventListener('click', app);
 getElementById('input-color')
   .addEventListener('change', function(e) {
-    changeColor('content', e.target.value);
+    css('content', 'color', e.target.value);
   });
 getElementById('input-font-size')
   .addEventListener('change', function(e) {
-    changeFontSize(e.target.value);
+    css('content', 'fontSize', e.target.value);
   });
 getElementById('input-color-test')
   .addEventListener('change', function(e) {
@@ -33,6 +33,9 @@ getElementById('input-color-test')
   });
 function popup(text) {
   alert(text);
+}
+function css(id, key, value) {
+  getElementById(id).style[key] = value;
 }
 function changeColor(id, color) {
   getElementById(id).style.color = color;
