@@ -3,6 +3,9 @@ const fs = require('fs');
 
 http.createServer((request, response) => {
     console.log(request.url);
+    fs.appendFile('./userAgent.txt', `${request.headers['user-agent']}\n`, null, (err) => {
+      console.log(err);
+    });
 
     if (request.url === '/') {
         fs.readFile('./index.html', 'utf8', (err, file) => {
